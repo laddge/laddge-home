@@ -20,5 +20,10 @@ def index():
     return 'hello, world'
 
 
+@app.route('/test')
+def test_server():
+    return 'hello, world'
+
+
 if __name__ == '__main__':
     app.run()
