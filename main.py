@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, render_template
 from flask_httpauth import HTTPBasicAuth
 
 app = Flask(__name__)
@@ -17,7 +17,7 @@ def get_pw(id):
 @app.route('/')
 @auth.login_required
 def index():
-    return 'hello, world'
+    return render_template('index.html')
 
 
 @app.route('/test')

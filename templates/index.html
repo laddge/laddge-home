@@ -1,0 +1,33 @@
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Laddge Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <div style="background-color: #333; color: #f4f5f7; min-height: 100vh;">
+        <div class="text-center">
+            <button onclick="location.reload();" class="btn btn-dark m-3"><i class="bi-arrow-clockwise"></i></button>
+            <button onclick="fullscreen();" class="btn btn-dark m-3"><i class="bi-fullscreen" id="fullscreenicon"></i></button>
+            <h1>hello, world</h1>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function fullscreen() {
+            iel = document.getElementById('fullscreenicon');
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+                iel.classList.remove('bi-fullscreen-exit');
+                iel.classList.add('bi-fullscreen');
+            } else {
+                document.body.requestFullscreen();
+                iel.classList.remove('bi-fullscreen');
+                iel.classList.add('bi-fullscreen-exit');
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>
