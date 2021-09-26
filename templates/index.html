@@ -18,7 +18,7 @@
     <script type="text/javascript">
         function reload() {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', '/content.html', true);
+            xhr.open('GET', '/content.html?' + new Date().getTime(), true);
             xhr.onreadystatechange = function(){
                 if (xhr.readyState === 4 && xhr.status === 200){
                     document.getElementById('content').innerHTML = xhr.responseText;
