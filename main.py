@@ -20,6 +20,12 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/content.html')
+@auth.login_required
+def content():
+    return render_template('content.html')
+
+
 @app.route('/test')
 def test_server():
     return 'hello, world'

@@ -9,12 +9,23 @@
 <body>
     <div style="background-color: #333; color: #f4f5f7; min-height: 100vh;">
         <div class="text-center">
-            <button onclick="location.reload();" class="btn btn-dark m-3"><i class="bi-arrow-clockwise"></i></button>
+            <button onclick="reload();" class="btn btn-dark m-3"><i class="bi-arrow-clockwise"></i></button>
             <button onclick="fullscreen();" class="btn btn-dark m-3"><i class="bi-fullscreen" id="fullscreenicon"></i></button>
-            <h1>hello, world</h1>
+        </div>
+        <div id="content">
         </div>
     </div>
     <script type="text/javascript">
+        function reload() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/content.html', true);
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState === 4 && xhr.status === 200){
+                    document.getElementById('content').innerHTML = xhr.responseText;
+                }
+            }
+            xhr.send();
+        }
         function fullscreen() {
             iel = document.getElementById('fullscreenicon');
             if (document.fullscreenElement) {
@@ -26,6 +37,9 @@
                 iel.classList.remove('bi-fullscreen');
                 iel.classList.add('bi-fullscreen-exit');
             }
+        }
+        window.onload = function () {
+            reload();
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
