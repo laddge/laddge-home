@@ -31,10 +31,11 @@ def content():
     now = datetime.datetime.now(
         datetime.timezone(datetime.timedelta(hours=9))
     )
-    date = '{}/{} {}'.format(now.month, now.day, now.strftime('%A')[:3])
-    dtltitle = soup.select_one('#dateDtl dt span')
-    dtl = soup.select_one('#dateDtl dd')
-    return render_template('content.html', date=date, dtltitle=dtltitle.get_text(), dtl=dtl.get_text())
+    d = {}
+    d['date'] = '{}/{} {}'.format(now.month, now.day, now.strftime('%A')[:3])
+    d['dtltitle'] = soup.select_one('#dateDtl dt span').get_text()
+    d['dtl'] = soup.select_one('#dateDtl dd').get_text()
+    return render_template('content.html', d=d)
 
 
 @app.route('/test')
