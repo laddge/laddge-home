@@ -35,7 +35,8 @@ def content():
     d['date'] = '{}/{} {}'.format(now.month, now.day, now.strftime('%A')[:3])
     d['dtltitle'] = dsoup.select_one('#dateDtl dt span').text
     d['dtl'] = dsoup.select_one('#dateDtl dd').text
-    wh = {'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0.1; 404SC Build/MMB29K) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'}
+    wh = {'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0.1; 404SC Build/MMB29K) \
+        AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'}
     wres = requests.get(
         'https://weather.yahoo.co.jp/weather/jp/20/4810/20201.html',
         headers=wh
